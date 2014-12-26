@@ -13,10 +13,10 @@
 
 @interface ACEasingValues : NSObject
 
-+ (instancetype)sharedInstance;
-
-- (NSArray *)valuesArrayWithDuration:(NSTimeInterval)duration
-                            function:(AHEasingFunction)function
-                           fromValue:(CGFloat)fromValue
-                             toValue:(CGFloat)toValue;
+- (void)setValueWithDuration:(NSTimeInterval)duration
+                    function:(AHEasingFunction)function
+                fromProgress:(CGFloat)fromProgress
+                  toProgress:(CGFloat)toProgress
+                    progress:(void (^)(CGFloat progress))progress
+                  completion:(void (^)())completion;
 @end

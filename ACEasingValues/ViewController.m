@@ -15,8 +15,6 @@
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UIProgressView *progressView;
 
-@property (nonatomic, assign) NSInteger currentFrame;
-
 @end
 
 @implementation ViewController
@@ -35,44 +33,27 @@
     
 
     
-    // animate values
-    
-    NSTimeInterval durationTime = 3.0;
-    
-    NSArray *valuesArray =
-    [[ACEasingValues sharedInstance]
-     valuesArrayWithDuration:durationTime
+    // animate set values
+    [[[ACEasingValues alloc] init]
+     setValueWithDuration:3.0
      function:QuadraticEaseOut
-     fromValue:0.0
-     toValue:0.86];
-    
-    CGFloat refreshTime = durationTime / valuesArray.count;
+     fromProgress:0.0
+     toProgress:0.86
+     progress:^(CGFloat progress) {
+         
+         self.progressView.progress = progress;
+         
+         self.label.text = [NSString stringWithFormat:@"%.2f", progress];
+         
+     }
+     completion:^{
+         
+         NSLog(@"complete");
+         
+     }];
 
-    NSTimer *timer = [NSTimer timerWithTimeInterval:refreshTime
-                                             target:self
-                                           selector:@selector(refreshValue:)
-                                           userInfo:valuesArray
-                                            repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    
 }
 
-- (void)refreshValue:(NSTimer*)timer
-{
-    NSArray *values = (NSArray *)timer.userInfo;
-    
-    NSNumber *value = values[self.currentFrame];
-    self.progressView.progress = [value floatValue];
-    
-    self.label.text = [NSString stringWithFormat:@"%.2f", [value floatValue]];;
-    
-    self.currentFrame++;
-    
-    if (self.currentFrame > (values.count - 1)) {
-        [timer invalidate];
-        timer = nil;
-    }
-}
 
 
 - (void)didReceiveMemoryWarning {
