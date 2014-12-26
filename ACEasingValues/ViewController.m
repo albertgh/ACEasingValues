@@ -36,7 +36,7 @@
     // animate set values
     [[[ACEasingValues alloc] init]
      setValueWithDuration:3.0
-     function:QuadraticEaseOut
+     function:ExponentialEaseOut
      fromProgress:0.0
      toProgress:0.86
      progress:^(CGFloat progress) {
