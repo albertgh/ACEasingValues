@@ -47,7 +47,6 @@ static NSUInteger const ACEV_FPS                        = 60;
     CGFloat eachPercent = 1.0 / (frameCount - 1);
     
     NSMutableArray *valuesMArray = [[NSMutableArray alloc] init];
-
     
     for(NSUInteger frame = 0; frame < frameCount; ++frame, currentProgress += eachPercent)
     {
@@ -55,11 +54,17 @@ static NSUInteger const ACEV_FPS                        = 60;
         [valuesMArray addObject:@(value)];
     }
 
+    NSMutableDictionary *dictionaryForTimer = [[NSMutableDictionary alloc] init];
+  
+    dictionaryForTimer[@"valusesMArray"] = valuesMArray;
     
-    NSDictionary *dictionaryForTimer = @{@"progressBlock" : progress,
-                                         @"completionBlock" : completion,
-                                         @"valusesMArray" : valuesMArray};
-
+    if (progress) {
+        dictionaryForTimer[@"progressBlock"] = progress;
+    }
+    
+    if (completion) {
+        dictionaryForTimer[@"completionBlock"] = completion;
+    }
     
     CGFloat refreshTime = duration / valuesMArray.count;
     
