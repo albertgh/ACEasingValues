@@ -14,6 +14,8 @@
 		762080751A4D676700A472AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 762080741A4D676700A472AD /* Images.xcassets */; };
 		762080781A4D676700A472AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 762080761A4D676700A472AD /* LaunchScreen.xib */; };
 		762080841A4D676700A472AD /* ACEasingValuesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 762080831A4D676700A472AD /* ACEasingValuesTests.m */; };
+		76E316B21A4D8005008525C5 /* easing.c in Sources */ = {isa = PBXBuildFile; fileRef = 76E316B01A4D8005008525C5 /* easing.c */; };
+		76E316B51A4D8071008525C5 /* ACEasingValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E316B41A4D8071008525C5 /* ACEasingValues.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		7620807D1A4D676700A472AD /* ACEasingValuesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ACEasingValuesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		762080821A4D676700A472AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		762080831A4D676700A472AD /* ACEasingValuesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACEasingValuesTests.m; sourceTree = "<group>"; };
+		76E316B01A4D8005008525C5 /* easing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = easing.c; sourceTree = "<group>"; };
+		76E316B11A4D8005008525C5 /* easing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = easing.h; sourceTree = "<group>"; };
+		76E316B31A4D8071008525C5 /* ACEasingValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEasingValues.h; sourceTree = "<group>"; };
+		76E316B41A4D8071008525C5 /* ACEasingValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEasingValues.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		762080661A4D676700A472AD /* ACEasingValues */ = {
 			isa = PBXGroup;
 			children = (
+				76E316AF1A4D8005008525C5 /* ACEasingValues */,
 				7620806B1A4D676700A472AD /* AppDelegate.h */,
 				7620806C1A4D676700A472AD /* AppDelegate.m */,
 				7620806E1A4D676700A472AD /* ViewController.h */,
@@ -117,6 +124,17 @@
 				762080821A4D676700A472AD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		76E316AF1A4D8005008525C5 /* ACEasingValues */ = {
+			isa = PBXGroup;
+			children = (
+				76E316B01A4D8005008525C5 /* easing.c */,
+				76E316B11A4D8005008525C5 /* easing.h */,
+				76E316B31A4D8071008525C5 /* ACEasingValues.h */,
+				76E316B41A4D8071008525C5 /* ACEasingValues.m */,
+			);
+			path = ACEasingValues;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +237,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E316B21A4D8005008525C5 /* easing.c in Sources */,
 				762080701A4D676700A472AD /* ViewController.m in Sources */,
+				76E316B51A4D8071008525C5 /* ACEasingValues.m in Sources */,
 				7620806D1A4D676700A472AD /* AppDelegate.m in Sources */,
 				7620806A1A4D676700A472AD /* main.m in Sources */,
 			);
@@ -297,7 +317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -332,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -343,7 +363,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = ACEasingValues/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,7 +375,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = ACEasingValues/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -412,6 +436,7 @@
 				762080891A4D676700A472AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7620808A1A4D676700A472AD /* Build configuration list for PBXNativeTarget "ACEasingValuesTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +445,7 @@
 				7620808C1A4D676700A472AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
